@@ -8,3 +8,9 @@ List<Member> getMockMembers() {
 }
 
 Member getMockMember() => Member.fromMap(jsonDecode(fixture("member.json"))["data"]["member"][0]);
+
+Map<String, dynamic> getMockMembersWithError(){ 
+  String json = fixture("members_with_error.json");
+
+  return jsonDecode(json);
+}

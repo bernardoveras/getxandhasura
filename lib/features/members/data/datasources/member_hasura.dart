@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:getxandhasura/features/members/domain/entities/member.dart';
 import 'package:getxandhasura/shared/data/exceptions/server_exception.dart';
-import 'package:getxandhasura/shared/hasura_response.dart';
+import 'package:getxandhasura/shared/data/hasura_response.dart';
 import 'package:getxandhasura/shared/queries.dart';
 import 'package:hasura_connect/hasura_connect.dart';
 
@@ -31,6 +31,8 @@ class MemberHasuraImpl implements MemberHasura {
   Future<Member> getMemberById(String id) async {
     HasuraResponse response = HasuraResponse.table(jsonDecode(await _hasuraConnect.query(getMemberByIdQuery(id))), 'member');
 
-    return Member.fromMap(response.data);
+    if (response.data is Map<String, dynamic>) return Member.fromMap(response.data);
+
+    throw ServerException(statusCode: 200);
   }
 }

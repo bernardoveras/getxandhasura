@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:getxandhasura/features/members/data/datasources/member_hasura.dart';
+import 'package:getxandhasura/shared/failure.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../../../helpers/fixtures/fixture_reader.dart';
@@ -24,6 +25,14 @@ void main() {
 
       expect(result, getMockMembers());
     });
+
+    test('should return empty list of members when success response', () async {
+      when(hasuraConnect.query(any)).thenAnswer((_) async => fixture('members_without_result.json'));
+
+      final result = await api.getMembers();
+
+      expect(result, []);
+    });
   });
 
   group('get member by id', () {
@@ -34,5 +43,11 @@ void main() {
 
       expect(result, getMockMember());
     });
+  });
+
+  test('should throw a MessageFailure when the return error', () async {
+    when(hasuraConnect.query(any)).thenAnswer((_) async => fixture('members_with_error.json'));
+
+    expect(api.getMembers(), throwsA(TypeMatcher<MessageFailure>()));
   });
 }

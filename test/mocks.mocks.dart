@@ -4,20 +4,23 @@
 
 import 'dart:async' as _i4;
 
+import 'package:connectivity/connectivity.dart' as _i7;
+import 'package:connectivity_platform_interface/src/enums.dart' as _i8;
 import 'package:getxandhasura/features/members/data/datasources/member_hasura.dart'
-    as _i7;
+    as _i10;
 import 'package:getxandhasura/features/members/domain/entities/member.dart'
     as _i3;
 import 'package:getxandhasura/features/members/domain/repositories/member_repository.dart'
-    as _i6;
-import 'package:getxandhasura/features/members/domain/usecases/members/get_member_by_id.dart'
     as _i9;
+import 'package:getxandhasura/features/members/domain/usecases/members/get_member_by_id.dart'
+    as _i12;
 import 'package:getxandhasura/features/members/domain/usecases/members/get_members.dart'
-    as _i8;
+    as _i11;
+import 'package:getxandhasura/shared/plugins/network_manager.dart' as _i6;
 import 'package:getxandhasura/shared/result.dart' as _i2;
 import 'package:hasura_connect/src/domain/entities/snapshot.dart' as _i5;
-import 'package:hasura_connect/src/domain/models/query.dart' as _i11;
-import 'package:hasura_connect/src/presenter/hasura_connect_base.dart' as _i10;
+import 'package:hasura_connect/src/domain/models/query.dart' as _i14;
+import 'package:hasura_connect/src/presenter/hasura_connect_base.dart' as _i13;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -35,10 +38,49 @@ class _FakeStreamController<T> extends _i1.Fake
 
 class _FakeSnapshot<T> extends _i1.Fake implements _i5.Snapshot<T> {}
 
+/// A class which mocks [NetworkManager].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNetworkManager extends _i1.Mock implements _i6.NetworkManager {
+  MockNetworkManager() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<bool> isOnline() =>
+      (super.noSuchMethod(Invocation.method(#isOnline, []),
+          returnValue: Future<bool>.value(false)) as _i4.Future<bool>);
+  @override
+  _i4.Future<bool> isOffline() =>
+      (super.noSuchMethod(Invocation.method(#isOffline, []),
+          returnValue: Future<bool>.value(false)) as _i4.Future<bool>);
+}
+
+/// A class which mocks [Connectivity].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockConnectivity extends _i1.Mock implements _i7.Connectivity {
+  MockConnectivity() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Stream<_i8.ConnectivityResult> get onConnectivityChanged =>
+      (super.noSuchMethod(Invocation.getter(#onConnectivityChanged),
+              returnValue: Stream<_i8.ConnectivityResult>.empty())
+          as _i4.Stream<_i8.ConnectivityResult>);
+  @override
+  _i4.Future<_i8.ConnectivityResult> checkConnectivity() => (super.noSuchMethod(
+          Invocation.method(#checkConnectivity, []),
+          returnValue:
+              Future<_i8.ConnectivityResult>.value(_i8.ConnectivityResult.wifi))
+      as _i4.Future<_i8.ConnectivityResult>);
+}
+
 /// A class which mocks [MemberRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMemberRepository extends _i1.Mock implements _i6.MemberRepository {
+class MockMemberRepository extends _i1.Mock implements _i9.MemberRepository {
   MockMemberRepository() {
     _i1.throwOnMissingStub(this);
   }
@@ -60,7 +102,7 @@ class MockMemberRepository extends _i1.Mock implements _i6.MemberRepository {
 /// A class which mocks [MemberHasura].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMemberHasura extends _i1.Mock implements _i7.MemberHasura {
+class MockMemberHasura extends _i1.Mock implements _i10.MemberHasura {
   MockMemberHasura() {
     _i1.throwOnMissingStub(this);
   }
@@ -80,7 +122,7 @@ class MockMemberHasura extends _i1.Mock implements _i7.MemberHasura {
 /// A class which mocks [GetMembers].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetMembers extends _i1.Mock implements _i8.GetMembers {
+class MockGetMembers extends _i1.Mock implements _i11.GetMembers {
   MockGetMembers() {
     _i1.throwOnMissingStub(this);
   }
@@ -96,7 +138,7 @@ class MockGetMembers extends _i1.Mock implements _i8.GetMembers {
 /// A class which mocks [GetMemberById].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetMemberById extends _i1.Mock implements _i9.GetMemberById {
+class MockGetMemberById extends _i1.Mock implements _i12.GetMemberById {
   MockGetMemberById() {
     _i1.throwOnMissingStub(this);
   }
@@ -112,7 +154,7 @@ class MockGetMemberById extends _i1.Mock implements _i9.GetMemberById {
 /// A class which mocks [HasuraConnect].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockHasuraConnect extends _i1.Mock implements _i10.HasuraConnect {
+class MockHasuraConnect extends _i1.Mock implements _i13.HasuraConnect {
   MockHasuraConnect() {
     _i1.throwOnMissingStub(this);
   }
@@ -167,7 +209,7 @@ class MockHasuraConnect extends _i1.Mock implements _i10.HasuraConnect {
       super.noSuchMethod(Invocation.method(#sendToWebSocketServer, [input]),
           returnValueForMissingStub: null);
   @override
-  String querySubscription(_i11.Query? query) =>
+  String querySubscription(_i14.Query? query) =>
       (super.noSuchMethod(Invocation.method(#querySubscription, [query]),
           returnValue: '') as String);
   @override
