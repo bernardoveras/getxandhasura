@@ -10,7 +10,7 @@ import '../../../../mocks.mocks.dart';
 void main() {
   late MemberRepository repository;
   late GetMemberById getMemberById;
-  String id = "059bbef0-40b2-4729-8e2a-d113da3c72ea";
+  String id = "caf9cb36-ccd6-48cc-bd70-39e764ac23bf";
 
   setUp(() {
     repository = MockMemberRepository();

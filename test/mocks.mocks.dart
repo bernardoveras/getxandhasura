@@ -2,16 +2,18 @@
 // in getxandhasura/test/mocks.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
-import 'package:getxandhasura/features/members/domain/entities/member.dart'
-    as _i5;
-import 'package:getxandhasura/features/members/domain/repositories/member_repository.dart'
-    as _i3;
-import 'package:getxandhasura/features/members/domain/usecases/members/get_member_by_id.dart'
-    as _i7;
-import 'package:getxandhasura/features/members/domain/usecases/members/get_members.dart'
+import 'package:getxandhasura/features/members/data/datasources/member_hasura.dart'
     as _i6;
+import 'package:getxandhasura/features/members/domain/entities/member.dart'
+    as _i3;
+import 'package:getxandhasura/features/members/domain/repositories/member_repository.dart'
+    as _i4;
+import 'package:getxandhasura/features/members/domain/usecases/members/get_member_by_id.dart'
+    as _i8;
+import 'package:getxandhasura/features/members/domain/usecases/members/get_members.dart'
+    as _i7;
 import 'package:getxandhasura/shared/result.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -23,56 +25,78 @@ import 'package:mockito/mockito.dart' as _i1;
 
 class _FakeResult<T> extends _i1.Fake implements _i2.Result<T> {}
 
+class _FakeMember extends _i1.Fake implements _i3.Member {}
+
 /// A class which mocks [MemberRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMemberRepository extends _i1.Mock implements _i3.MemberRepository {
+class MockMemberRepository extends _i1.Mock implements _i4.MemberRepository {
   MockMemberRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Result<List<_i5.Member>>> getMembers() =>
+  _i5.Future<_i2.Result<List<_i3.Member>>> getMembers() =>
       (super.noSuchMethod(Invocation.method(#getMembers, []),
-              returnValue: Future<_i2.Result<List<_i5.Member>>>.value(
-                  _FakeResult<List<_i5.Member>>()))
-          as _i4.Future<_i2.Result<List<_i5.Member>>>);
+              returnValue: Future<_i2.Result<List<_i3.Member>>>.value(
+                  _FakeResult<List<_i3.Member>>()))
+          as _i5.Future<_i2.Result<List<_i3.Member>>>);
   @override
-  _i4.Future<_i2.Result<_i5.Member>> getMemberById(String? id) =>
+  _i5.Future<_i2.Result<_i3.Member>> getMemberById(String? id) =>
       (super.noSuchMethod(Invocation.method(#getMemberById, [id]),
-              returnValue: Future<_i2.Result<_i5.Member>>.value(
-                  _FakeResult<_i5.Member>()))
-          as _i4.Future<_i2.Result<_i5.Member>>);
+              returnValue: Future<_i2.Result<_i3.Member>>.value(
+                  _FakeResult<_i3.Member>()))
+          as _i5.Future<_i2.Result<_i3.Member>>);
+}
+
+/// A class which mocks [MemberHasura].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockMemberHasura extends _i1.Mock implements _i6.MemberHasura {
+  MockMemberHasura() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<List<_i3.Member>> getMembers() =>
+      (super.noSuchMethod(Invocation.method(#getMembers, []),
+              returnValue: Future<List<_i3.Member>>.value(<_i3.Member>[]))
+          as _i5.Future<List<_i3.Member>>);
+  @override
+  _i5.Future<_i3.Member> getMemberById(String? id) =>
+      (super.noSuchMethod(Invocation.method(#getMemberById, [id]),
+              returnValue: Future<_i3.Member>.value(_FakeMember()))
+          as _i5.Future<_i3.Member>);
 }
 
 /// A class which mocks [GetMembers].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetMembers extends _i1.Mock implements _i6.GetMembers {
+class MockGetMembers extends _i1.Mock implements _i7.GetMembers {
   MockGetMembers() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Result<List<_i5.Member>>> call() =>
+  _i5.Future<_i2.Result<List<_i3.Member>>> call() =>
       (super.noSuchMethod(Invocation.method(#call, []),
-              returnValue: Future<_i2.Result<List<_i5.Member>>>.value(
-                  _FakeResult<List<_i5.Member>>()))
-          as _i4.Future<_i2.Result<List<_i5.Member>>>);
+              returnValue: Future<_i2.Result<List<_i3.Member>>>.value(
+                  _FakeResult<List<_i3.Member>>()))
+          as _i5.Future<_i2.Result<List<_i3.Member>>>);
 }
 
 /// A class which mocks [GetMemberById].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetMemberById extends _i1.Mock implements _i7.GetMemberById {
+class MockGetMemberById extends _i1.Mock implements _i8.GetMemberById {
   MockGetMemberById() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Result<_i5.Member>> call(String? id) => (super.noSuchMethod(
+  _i5.Future<_i2.Result<_i3.Member>> call(String? id) => (super.noSuchMethod(
           Invocation.method(#call, [id]),
           returnValue:
-              Future<_i2.Result<_i5.Member>>.value(_FakeResult<_i5.Member>()))
-      as _i4.Future<_i2.Result<_i5.Member>>);
+              Future<_i2.Result<_i3.Member>>.value(_FakeResult<_i3.Member>()))
+      as _i5.Future<_i2.Result<_i3.Member>>);
 }

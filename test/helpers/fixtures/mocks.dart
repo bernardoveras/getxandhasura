@@ -4,7 +4,7 @@ import 'fixture_reader.dart';
 
 List<Member> getMockMembers() {
   String json = fixture("members.json");
-  return jsonDecode(json).map<Member>((map) => Member.fromMap(map)).toList();
+  return jsonDecode(json)["data"]["member"].map<Member>((map) => Member.fromMap(map)).toList();
 }
 
-Member getMockMember() => Member.fromJson(fixture("member.json"));
+Member getMockMember() => Member.fromMap(jsonDecode(fixture("member.json"))["data"]["member"][0]);
