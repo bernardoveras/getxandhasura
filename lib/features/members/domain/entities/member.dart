@@ -1,7 +1,6 @@
 import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
-import 'package:getxandhasura/domain/enums/gender.dart';
+import '../../../../shared/enums/gender.dart';
 
 class Member extends Equatable {
   Member({

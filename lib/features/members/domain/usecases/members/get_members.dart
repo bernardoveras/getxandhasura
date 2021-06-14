@@ -1,5 +1,5 @@
-import 'package:getxandhasura/domain/entities/member.dart';
-import 'package:getxandhasura/domain/repositories/member_repository.dart';
+import '../../repositories/member_repository.dart';
+import '../../entities/member.dart';
 import 'package:getxandhasura/shared/result.dart';
 
 class GetMembers {

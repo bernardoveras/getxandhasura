@@ -1,4 +1,4 @@
-import 'package:getxandhasura/domain/entities/member.dart';
+import '../entities/member.dart';
 import 'package:getxandhasura/shared/result.dart';
 
 abstract class MemberRepository{
