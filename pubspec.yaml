@@ -7,11 +7,13 @@ environment:
   sdk: ">=2.13.0 <3.0.0"
 
 dependencies:
-  equatable:
+  equatable: ^2.0.2
   flutter:
     sdk: flutter
 
 dev_dependencies:
+  mockito: ^5.0.10
+  build_runner: ^2.0.4
   flutter_test:
     sdk: flutter
 
