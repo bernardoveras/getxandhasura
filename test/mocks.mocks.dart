@@ -2,19 +2,22 @@
 // in getxandhasura/test/mocks.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i5;
+import 'dart:async' as _i4;
 
 import 'package:getxandhasura/features/members/data/datasources/member_hasura.dart'
-    as _i6;
+    as _i7;
 import 'package:getxandhasura/features/members/domain/entities/member.dart'
     as _i3;
 import 'package:getxandhasura/features/members/domain/repositories/member_repository.dart'
-    as _i4;
+    as _i6;
 import 'package:getxandhasura/features/members/domain/usecases/members/get_member_by_id.dart'
-    as _i8;
+    as _i9;
 import 'package:getxandhasura/features/members/domain/usecases/members/get_members.dart'
-    as _i7;
+    as _i8;
 import 'package:getxandhasura/shared/result.dart' as _i2;
+import 'package:hasura_connect/src/domain/entities/snapshot.dart' as _i5;
+import 'package:hasura_connect/src/domain/models/query.dart' as _i11;
+import 'package:hasura_connect/src/presenter/hasura_connect_base.dart' as _i10;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -27,76 +30,158 @@ class _FakeResult<T> extends _i1.Fake implements _i2.Result<T> {}
 
 class _FakeMember extends _i1.Fake implements _i3.Member {}
 
+class _FakeStreamController<T> extends _i1.Fake
+    implements _i4.StreamController<T> {}
+
+class _FakeSnapshot<T> extends _i1.Fake implements _i5.Snapshot<T> {}
+
 /// A class which mocks [MemberRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMemberRepository extends _i1.Mock implements _i4.MemberRepository {
+class MockMemberRepository extends _i1.Mock implements _i6.MemberRepository {
   MockMemberRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<_i2.Result<List<_i3.Member>>> getMembers() =>
+  _i4.Future<_i2.Result<List<_i3.Member>>> getMembers() =>
       (super.noSuchMethod(Invocation.method(#getMembers, []),
               returnValue: Future<_i2.Result<List<_i3.Member>>>.value(
                   _FakeResult<List<_i3.Member>>()))
-          as _i5.Future<_i2.Result<List<_i3.Member>>>);
+          as _i4.Future<_i2.Result<List<_i3.Member>>>);
   @override
-  _i5.Future<_i2.Result<_i3.Member>> getMemberById(String? id) =>
+  _i4.Future<_i2.Result<_i3.Member>> getMemberById(String? id) =>
       (super.noSuchMethod(Invocation.method(#getMemberById, [id]),
               returnValue: Future<_i2.Result<_i3.Member>>.value(
                   _FakeResult<_i3.Member>()))
-          as _i5.Future<_i2.Result<_i3.Member>>);
+          as _i4.Future<_i2.Result<_i3.Member>>);
 }
 
 /// A class which mocks [MemberHasura].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMemberHasura extends _i1.Mock implements _i6.MemberHasura {
+class MockMemberHasura extends _i1.Mock implements _i7.MemberHasura {
   MockMemberHasura() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<List<_i3.Member>> getMembers() =>
+  _i4.Future<List<_i3.Member>> getMembers() =>
       (super.noSuchMethod(Invocation.method(#getMembers, []),
               returnValue: Future<List<_i3.Member>>.value(<_i3.Member>[]))
-          as _i5.Future<List<_i3.Member>>);
+          as _i4.Future<List<_i3.Member>>);
   @override
-  _i5.Future<_i3.Member> getMemberById(String? id) =>
+  _i4.Future<_i3.Member> getMemberById(String? id) =>
       (super.noSuchMethod(Invocation.method(#getMemberById, [id]),
               returnValue: Future<_i3.Member>.value(_FakeMember()))
-          as _i5.Future<_i3.Member>);
+          as _i4.Future<_i3.Member>);
 }
 
 /// A class which mocks [GetMembers].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetMembers extends _i1.Mock implements _i7.GetMembers {
+class MockGetMembers extends _i1.Mock implements _i8.GetMembers {
   MockGetMembers() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<_i2.Result<List<_i3.Member>>> call() =>
+  _i4.Future<_i2.Result<List<_i3.Member>>> call() =>
       (super.noSuchMethod(Invocation.method(#call, []),
               returnValue: Future<_i2.Result<List<_i3.Member>>>.value(
                   _FakeResult<List<_i3.Member>>()))
-          as _i5.Future<_i2.Result<List<_i3.Member>>>);
+          as _i4.Future<_i2.Result<List<_i3.Member>>>);
 }
 
 /// A class which mocks [GetMemberById].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetMemberById extends _i1.Mock implements _i8.GetMemberById {
+class MockGetMemberById extends _i1.Mock implements _i9.GetMemberById {
   MockGetMemberById() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<_i2.Result<_i3.Member>> call(String? id) => (super.noSuchMethod(
+  _i4.Future<_i2.Result<_i3.Member>> call(String? id) => (super.noSuchMethod(
           Invocation.method(#call, [id]),
           returnValue:
               Future<_i2.Result<_i3.Member>>.value(_FakeResult<_i3.Member>()))
-      as _i5.Future<_i2.Result<_i3.Member>>);
+      as _i4.Future<_i2.Result<_i3.Member>>);
+}
+
+/// A class which mocks [HasuraConnect].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockHasuraConnect extends _i1.Mock implements _i10.HasuraConnect {
+  MockHasuraConnect() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.StreamController<dynamic> get controller =>
+      (super.noSuchMethod(Invocation.getter(#controller),
+              returnValue: _FakeStreamController<dynamic>())
+          as _i4.StreamController<dynamic>);
+  @override
+  String get url =>
+      (super.noSuchMethod(Invocation.getter(#url), returnValue: '') as String);
+  @override
+  Map<String, _i5.Snapshot<dynamic>> get snapmap =>
+      (super.noSuchMethod(Invocation.getter(#snapmap),
+              returnValue: <String, _i5.Snapshot<dynamic>>{})
+          as Map<String, _i5.Snapshot<dynamic>>);
+  @override
+  bool get isConnected =>
+      (super.noSuchMethod(Invocation.getter(#isConnected), returnValue: false)
+          as bool);
+  @override
+  void rootStreamListener(dynamic data) =>
+      super.noSuchMethod(Invocation.method(#rootStreamListener, [data]),
+          returnValueForMissingStub: null);
+  @override
+  _i4.Future<dynamic> query(String? document,
+          {String? key, Map<String, dynamic>? variables}) =>
+      (super.noSuchMethod(
+          Invocation.method(
+              #query, [document], {#key: key, #variables: variables}),
+          returnValue: Future<dynamic>.value()) as _i4.Future<dynamic>);
+  @override
+  _i4.Future<dynamic> mutation(String? document,
+          {Map<String, dynamic>? variables,
+          bool? tryAgain = true,
+          String? key}) =>
+      (super.noSuchMethod(
+          Invocation.method(#mutation, [document],
+              {#variables: variables, #tryAgain: tryAgain, #key: key}),
+          returnValue: Future<dynamic>.value()) as _i4.Future<dynamic>);
+  @override
+  _i4.Future<_i5.Snapshot<dynamic>> subscription(String? document,
+          {String? key, Map<String, dynamic>? variables}) =>
+      (super.noSuchMethod(
+          Invocation.method(
+              #subscription, [document], {#key: key, #variables: variables}),
+          returnValue: Future<_i5.Snapshot<dynamic>>.value(
+              _FakeSnapshot<dynamic>())) as _i4.Future<_i5.Snapshot<dynamic>>);
+  @override
+  void sendToWebSocketServer(String? input) =>
+      super.noSuchMethod(Invocation.method(#sendToWebSocketServer, [input]),
+          returnValueForMissingStub: null);
+  @override
+  String querySubscription(_i11.Query? query) =>
+      (super.noSuchMethod(Invocation.method(#querySubscription, [query]),
+          returnValue: '') as String);
+  @override
+  _i4.Future<void> normalizeStreamValue(Map<dynamic, dynamic>? data) =>
+      (super.noSuchMethod(Invocation.method(#normalizeStreamValue, [data]),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future.value()) as _i4.Future<void>);
+  @override
+  _i4.Future<void> disconnect() =>
+      (super.noSuchMethod(Invocation.method(#disconnect, []),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future.value()) as _i4.Future<void>);
+  @override
+  _i4.Future<dynamic> dispose() =>
+      (super.noSuchMethod(Invocation.method(#dispose, []),
+          returnValue: Future<dynamic>.value()) as _i4.Future<dynamic>);
 }

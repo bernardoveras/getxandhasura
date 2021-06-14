@@ -11,6 +11,7 @@ import '../../../../mocks.mocks.dart';
 void main() {
   late MemberRepository repository;
   late MemberHasura api;
+  final String id = 'UUID_GENERATOR';
 
   setUp(() {
     api = MockMemberHasura();
@@ -25,6 +26,17 @@ void main() {
       Result result = await repository.getMembers();
 
       expect(result.data, members);
+    });
+  });
+
+  group('get member by id', () {
+    test("should return member", () async {
+      Member member = getMockMember();
+      when(api.getMemberById(id)).thenAnswer((_) async => member);
+
+      Result result = await repository.getMemberById(id);
+
+      expect(result.data, member);
     });
   });
 }
