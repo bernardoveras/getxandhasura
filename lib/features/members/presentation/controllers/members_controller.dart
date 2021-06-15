@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:getxandhasura/features/members/domain/entities/member.dart';
 import 'package:getxandhasura/features/members/domain/usecases/members/get_members.dart';
 import 'package:getxandhasura/shared/utils/state.dart';
-import 'package:getxandhasura/shared/utils/state_extension.dart';
+import 'package:getxandhasura/shared/extensions/state_extension.dart';
 
 
 typedef MembersViewState = ViewState<List<Member>>;

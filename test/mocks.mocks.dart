@@ -4,8 +4,8 @@
 
 import 'dart:async' as _i4;
 
-import 'package:connectivity/connectivity.dart' as _i7;
-import 'package:connectivity_platform_interface/src/enums.dart' as _i8;
+import 'package:connectivity_plus/connectivity_plus.dart' as _i7;
+import 'package:connectivity_plus_platform_interface/src/enums.dart' as _i8;
 import 'package:getxandhasura/features/members/data/datasources/member_hasura.dart'
     as _i10;
 import 'package:getxandhasura/features/members/domain/entities/member.dart'

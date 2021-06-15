@@ -1,4 +1,4 @@
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:getxandhasura/features/members/data/datasources/member_hasura.dart';
 import 'package:getxandhasura/features/members/domain/repositories/member_repository.dart';
 import 'package:getxandhasura/features/members/domain/usecases/members/get_member_by_id.dart';
