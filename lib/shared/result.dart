@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'failure.dart';
+import 'errors/failure.dart';
 
 class Result<T> extends Equatable {
   final T? _data;

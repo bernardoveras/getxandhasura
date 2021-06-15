@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:getxandhasura/features/members/domain/entities/member.dart';
 import 'package:getxandhasura/shared/data/exceptions/server_exception.dart';
 import 'package:getxandhasura/shared/data/hasura_response.dart';
@@ -18,7 +16,8 @@ class MemberHasuraImpl implements MemberHasura {
 
   @override
   Future<List<Member>> getMembers() async {
-    HasuraResponse response = HasuraResponse.table(jsonDecode(await _hasuraConnect.query(getMembersQuery)), 'member');
+    HasuraResponse response = HasuraResponse.table(await _hasuraConnect.query(getMembersQuery), 'member');
+
 
     if (response.data is List) {
       return response.data.map<Member>((map) => Member.fromMap(map)).toList();
@@ -29,7 +28,7 @@ class MemberHasuraImpl implements MemberHasura {
 
   @override
   Future<Member> getMemberById(String id) async {
-    HasuraResponse response = HasuraResponse.table(jsonDecode(await _hasuraConnect.query(getMemberByIdQuery(id))), 'member');
+    HasuraResponse response = HasuraResponse.table(await _hasuraConnect.query(getMemberByIdQuery(id)), 'member');
 
     if (response.data is Map<String, dynamic>) return Member.fromMap(response.data);
 

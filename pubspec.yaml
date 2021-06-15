@@ -9,6 +9,7 @@ environment:
 dependencies:
   equatable: ^2.0.2
   hasura_connect: ^3.0.4
+  flutter_screenutil:
   connectivity:
   get:
   flutter:

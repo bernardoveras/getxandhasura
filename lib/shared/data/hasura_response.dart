@@ -1,4 +1,4 @@
-import 'package:getxandhasura/shared/failure.dart';
+import 'package:getxandhasura/shared/errors/failure.dart';
 
 /// The response structure must contain an array called "data".
 /// Inside it can contain values ​​with names of existing tables

@@ -1,19 +1,19 @@
 import 'package:http/http.dart';
 
 class ServerException implements Exception {
-  final String? msg;
+  final String? message;
   final int statusCode;
 
-  ServerException({required this.statusCode, this.msg});
+  ServerException({required this.statusCode, this.message});
 
   ServerException.fromResponse(Response response)
       : this.statusCode = response.statusCode,
-        this.msg = response.body;
+        this.message = response.body;
 }
 
 class ApiMessageException implements Exception {
-  final String msg;
+  final String message;
   final int statusCode;
 
-  ApiMessageException({required this.statusCode, required this.msg});
+  ApiMessageException({required this.statusCode, required this.message});
 }

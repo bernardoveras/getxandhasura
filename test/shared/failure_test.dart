@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:getxandhasura/shared/failure.dart';
+import 'package:getxandhasura/shared/errors/failure.dart';
 
 main() {
 

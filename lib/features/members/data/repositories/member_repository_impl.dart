@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:getxandhasura/features/members/data/datasources/member_hasura.dart';
 import 'package:getxandhasura/features/members/domain/entities/member.dart';
 import 'package:getxandhasura/features/members/domain/repositories/member_repository.dart';
-import 'package:getxandhasura/shared/failure.dart';
+import 'package:getxandhasura/shared/errors/failure.dart';
 import 'package:getxandhasura/shared/result.dart';
 
 class MemberRepositoryImpl implements MemberRepository {
