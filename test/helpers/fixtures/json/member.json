@@ -2,14 +2,17 @@
   "data": {
     "member": [
       {
-        "id": "caf9cb36-ccd6-48cc-bd70-39e764ac23bf",
+        "id": "b74822a1-07e1-4255-91f4-eae971806855",
         "name": "Bernardo Veras",
         "email": "bernardo@vvssistemas.com.br",
-        "cellphone": "(21) 98359-7649",
+        "cellphone": null,
         "address": "Rua Pompéia, 45",
         "birth": "2003-05-19",
         "gender": "masculine",
-        "inactive": false
+        "inactive": false,
+        "language": {
+          "name": "Flutter"
+        }
       }
     ]
   }

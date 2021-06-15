@@ -8,6 +8,7 @@ class Member extends Equatable {
     required this.name,
     required this.gender,
     required this.birth,
+    required this.language,
     this.address,
     this.cellphone,
     this.email,
@@ -22,17 +23,18 @@ class Member extends Equatable {
   final String? email;
   final Gender gender;
   final bool inactive;
+  final String language;
 
-  Member copyWith({
-    String? id,
-    String? name,
-    String? address,
-    DateTime? birth,
-    String? cellphone,
-    String? email,
-    Gender? gender,
-    bool? inactive,
-  }) =>
+  Member copyWith(
+          {String? id,
+          String? name,
+          String? address,
+          DateTime? birth,
+          String? cellphone,
+          String? email,
+          Gender? gender,
+          bool? inactive,
+          String? language}) =>
       Member(
         id: id ?? this.id,
         name: name ?? this.name,
@@ -42,6 +44,7 @@ class Member extends Equatable {
         cellphone: cellphone ?? this.cellphone,
         email: email ?? this.email,
         inactive: inactive ?? this.inactive,
+        language: language ?? this.language,
       );
 
   factory Member.fromJson(String str) => Member.fromMap(json.decode(str));
@@ -54,6 +57,7 @@ class Member extends Equatable {
         email: json["email"],
         address: json["address"],
         cellphone: json["cellphone"],
+        language: json["language"]["name"],
         gender: (json["gender"] as String).toGenderEnum(),
         inactive: json["inactive"],
         birth: DateTime.parse(json["birth"]),
@@ -68,10 +72,11 @@ class Member extends Equatable {
         "inactive": inactive,
         "gender": gender.toDescription(),
         "birth": birth.toTimeStamp(),
+        "language": {"name": language}
       };
 
   @override
-  List<Object?> get props => [id, name, email, address, cellphone, gender, inactive, birth];
+  List<Object?> get props => [id, name, email, address, cellphone, gender, inactive, birth, language];
 }
 
 extension DateTimeExtension on DateTime {

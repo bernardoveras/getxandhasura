@@ -2,34 +2,56 @@
   "data": {
     "member": [
       {
-        "id": "caf9cb36-ccd6-48cc-bd70-39e764ac23bf",
+        "id": "b74822a1-07e1-4255-91f4-eae971806855",
         "name": "Bernardo Veras",
         "email": "bernardo@vvssistemas.com.br",
-        "cellphone": "(21) 98359-7649",
+        "cellphone": null,
         "address": "Rua Pompéia, 45",
         "birth": "2003-05-19",
         "gender": "masculine",
-        "inactive": false
+        "inactive": false,
+        "language": {
+          "name": "Flutter"
+        }
       },
       {
-        "id": "3b755631-c137-42dd-a163-d554874b60de",
+        "id": "1c31ea84-be3c-44ba-8ed8-8d40b950c752",
         "name": "Juan Veras",
         "email": "juan@vvssistemas.com.br",
         "cellphone": null,
         "address": "Rua Divina Pastora",
-        "birth": "2002-04-14",
+        "birth": "2002-04-04",
         "gender": "masculine",
-        "inactive": false
+        "inactive": false,
+        "language": {
+          "name": "Flutter"
+        }
       },
       {
-        "id": "72959f40-1563-4e95-9593-3be3914f3693",
+        "id": "6b5b870d-da12-42ae-a46e-a1cfc89ccf2c",
         "name": "Leonardo Veras",
         "email": "leonardo@vvssistemas.com.br",
         "cellphone": null,
         "address": "Rua Divina Pastora",
-        "birth": "2002-04-14",
+        "birth": "2002-04-04",
         "gender": "masculine",
-        "inactive": false
+        "inactive": false,
+        "language": {
+          "name": "Blazor"
+        }
+      },
+      {
+        "id": "cd2a57b5-0e03-48b4-a54e-6152ab8befdf",
+        "name": "Vinicius Veras",
+        "email": "vinicius@vvssistemas.com.br",
+        "cellphone": null,
+        "address": null,
+        "birth": "2002-04-04",
+        "gender": "masculine",
+        "inactive": false,
+        "language": {
+          "name": "C#"
+        }
       }
     ]
   }

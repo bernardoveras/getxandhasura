@@ -9,6 +9,9 @@ String get getMembersQuery => '''
                 birth
                 gender
                 inactive
+                language {
+                  name
+                }
               }
             }''';
 
@@ -23,6 +26,9 @@ query GetMemberById {
     birth
     gender
     inactive
+    language {
+      name
+    }
   }
 }
 ''';

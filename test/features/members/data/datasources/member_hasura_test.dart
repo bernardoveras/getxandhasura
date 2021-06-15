@@ -12,7 +12,7 @@ import '../../../../mocks.mocks.dart';
 void main() {
   late MemberHasura api;
   late MockHasuraConnect hasuraConnect;
-  final String id = 'UUID_GENERATOR';
+  final String id = 'UUID';
 
   setUp(() {
     hasuraConnect = MockHasuraConnect();
